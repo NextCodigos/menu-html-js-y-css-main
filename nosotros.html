@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- El encabezado de la página -->
+
+    <header>
+      <nav class="contenedor-flex-1">
+        <a href="index.html">
+          <img src="img/logo.png" alt="logo" width="250" height="50" />
+        </a>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros Ejercicios Javascript</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Nosotros -->
+
+    <section class="espacio-nosotros">
+      <div class="seccion-nosotros-1"><span>NOSOTROS</span></div>
+      <div class="seccion-nosotros-2">
+        <span>¿Quiénes somos y en qué creemos?</span>
+      </div>
+      <div class="grid">
+        <div class="valores">
+          <h2>
+            enunciado: Dada una cadena de texto, darle la vuelta e invertir el
+            orden de sus caracteres, sin usar metodos propios del lenguaje, solo
+            estructurasde control ejemplos: invertir('holas) // Devuelve: 'aloh'
+            COMO HACERLO -Funcion con parametro "cadena" -Crear una variable
+            para guardar la cadena invertida -Bucle que recorra string y guarde
+            los caracteres en las variables
+          </h2>
+          <p>
+            function invertir(texto){ let invertido = ""; for(let letra of
+            texto){ //console.log(letra); invertido = letra + invertido; }
+            //console.log(invertido) return invertido; } console.log("Texto
+            invertido: ", invertir("rpasculetweb.es"))
+          </p>
+
+          <h2>
+            Dadas dos cadenas de taxto,crear un algoritmo que compruebe si son
+            anagramas entre si. Una cadena es un anagrama de otra si usa los
+            mismos caracteres en la misma cantidad. No tener en cuenta espacios,
+            simboles raros,puntos,etc. Ejemplos: anagramas('Riesgo', 'Sergio')
+            // Devuelve: true anagramas('Victor', 'Robles') // Devuelve: false
+            Como hacerlo: -Crear una funcion para limpiar los textos -Quitar
+            todo lo que no sea texto -Poner en minusculas -Crear array de letras
+            -Ordenarlo -Unirlo -Funcion para comparar las dos palabras
+          </h2>
+          <p>
+            function limpiarTexto(texto){ return texto .replace(/[^\w]/gi,
+            '')//elimina todo lo que no sean letras .toLowerCase()
+            .split('')//separar todas las letras en un array de caracteres
+            .sort()//ordena .join('')//une ; } function anagramas(texto1,
+            texto2){ return limpiarTexto(texto1) === limpiarTexto(texto2); }
+            //console.log(limpiarTexto("Hola. soy - Ramon¡¡"))
+            console.log(anagramas("Sergio ¡¡ -., ", "serGIO!!!,,, ''"));
+          </p>
+
+          <h2>
+            Dado un array de objetos de peliculas (titulo,director,vista)
+            mostrar todas las peliculas indicando cual has visto y cual no.
+            Ejemplo: misPeliculas(peliculas); Devuelve: Ya as visto:"El señor de
+            los anillos de Peter Jacson" Te falta por ver:"La liga de la
+            justicia de Zack Snyder" Como hacerlo: -Crear un array de objetos
+            -Crear funcion para recorrer y mostar array.
+          </h2>
+          <p>
+            function misPeliculas(peliculas){ for(pelicula of peliculas){
+            //console.log(p); let para_mostrar = `"${pelicula.titulo} de
+            ${pelicula.director}"`; //para comprobar pelicula
+            if(pelicula.vista){ console.log("Ya as visto:", para_mostrar);
+            }else{ console.log("Te falta por ver:", para_mostrar); } } return
+            peliculas; } //arrays de objetos const coleccion_de_peliculas = [ {
+            titulo: "El señor de los anillos", director: "Peter Jacson", vista:
+            true }, { titulo: "La liga de la justicia ", director: "Zack Snyder
+            ", vista: false }, { titulo: " Los vengadores: Endgame", director:
+            "Joe Ruso", vista: true }, { titulo: "Batman vs Superman", director:
+            "Zack Snyder", vista: false } ];
+            console.log(misPeliculas(coleccion_de_peliculas));
+          </p>
+
+          <h2>
+            Dado un numero, mostrar todos sus numero divisores. Ejemplos:
+            mostrarDivisores(5); Devuelve: 1 5 COmo hacerlo: -Crear una funcion
+            que comprueba si un numero es divisor de otro -Crear funcion para
+            recorrer y mostrar
+          </h2>
+          <p>
+            function divisor(numero, posible_divisor){ if(numero%posible_divisor
+            === 0){ return posible_divisor; } return 0; } function
+            mostrarDivisores(numero){ for(let i = 1; i <= numero; i++){ let
+            esDivisor = divisor(numero, i); if(esDivisor)
+            console.log(esDivisor); } } mostrarDivisores(20);
+          </p>
+
+          <h2>
+            Dado un numero, mostrar los numeros de 1 hasta el numero. Pero para
+            multiplos de tres imprimir "buzz" en lugar del numero y para los
+            multiplos de cinco imprimir "lighyear". Para multuiplos de 3 y 5
+            imprimen "BuzzLightyear". Ejempplo: buzz(5); Devuelve: 1 2 buzz 4
+            lightyear Como hacerlo: -Crear una funcion que reciba el numero
+            -Condiciones numero actual multiplo de 3 o 5 -Crear funcion para
+            recorrer y mostrar -Bucle del 1 al numero
+          </h2>
+          <p>
+            function buzz(numero){ if(numero % 3 === 0 && numero % 5 === 0){
+            resultado = "BuzzLightyear"; }else if(numero % 3 === 0){ resultado =
+            "buzz"; }else if(numero % 5 === 0){ resultado = "lightyear"; }else{
+            return numero; } return resultado; }
+            //console.log(buzz(15));comprobar function imprimir(numero){ for(let
+            i = 1; i <= numero; i++){ //console.log(i);comprobar
+            console.log(buzz(i)); } } imprimir(20);
+          </p>
+
+          <h2>
+            Dada una cadena de texto, devolver cuantas vocales (a,e,i,o,u)
+            tiene. Ejemplos: vocales("victorrovlesweb.es") // devuelve: 6 Como
+            hacerlo: -Crear una funcion que reciba texto -Metodo match.js con
+            expresion regular -Devolver resultado
+          </h2>
+          <p>
+            function vocales(texto){ let coincidencias =
+            texto.match(/[aeiou]/gi); //console.log(coincidencias); return
+            coincidencias ? coincidencias.length : 0; } console.log("Numero de
+            vocales:", vocales("victrrblswb.s"));
+          </p>
+
+          <h2>
+            Dada una cadena de texto, devolver el caracter mas usado. Ejemplo:
+            masUsado("Victorroblesweb.es") // Devuelve Lo que mas se repite es:
+            e Como hacerlo: -Crear una funcion que reciba el texto. -Maprear
+            letras en un json -Recorreremos el mapeo -Hacemos condicion para ver
+            que contador es mayor
+          </h2>
+          <p>
+            function masUsado(texto){ let mapeo_letras = {}; let
+            maximo_repeticiones = 0;// wardo cual es el valor en cada momento
+            let letra_mas_repetida = "";//cual es la letra mas repetida for(let
+            letra of texto){ //console.log(letra) //añadir propiedad por cada
+            una de estas letras al objeto json if(!mapeo_letras[letra]){
+            mapeo_letras[letra] = 1; }else{//si si existe mapeo json letra
+            mapeo_letras[letra]++; } }// con in me saca el indice de las letras
+            for(let letra in mapeo_letras){ //console.log(letra); // en cada
+            iteracion comprobar: si la letra que se esta recorriento su valor
+            numerico en base a las repeticiones del string es mayor al anterior
+            que hay, entonces lo wardo dentro de maximo repeticiones y ademas
+            dentro de letra repetida wardo la letra en el caso que se cumpla
+            esta condicion if(mapeo_letras[letra].toString().trim().length ===1
+            && mapeo_letras[letra] > maximo_repeticiones){// .trim() elimina
+            espacios maximo_repeticiones = mapeo_letras[letra];
+            letra_mas_repetida = letra; } } // console.log(mapeo_letras);
+            comprobar return letra_mas_repetida;
+            //console.log(maximo_repeticiones, letra_mas_repetida);comprobar es
+            correcto } console.log("La letra mas repetida es;",masUsado("He
+            subido un nuevo video a mi canal de you tube"));
+          </p>
+
+          <h2>
+            Dado un string y un numero,repetir el string tantas veces como el
+            numero indique. Ejemplo: repiteme("ramon", 2) //Devuelve ramonramon
+            Como hacerlo: -Crear una funcion que reciba los dos parametros
+            -Bucle hasta el numero -Concatenar string
+          </h2>
+          <p>
+            // Funcion clasica function repiteme(texto, numero_repeticiones){
+            let resultado = "";// string vacio for(let i = 0; i <
+            numero_repeticiones; i++){ resultado += texto;// resultado le
+            concadenamos el texto y se repite tantas veces como sea necesario }
+            return resultado;//vemos el resultado }
+            console.log(repiteme("Ramon", 8));//llamamos funcion repiteme 8veces
+            /* //Funcion propotipo String.prototype.repiteme = function
+            repiteme(numero_repeticiones){ let resultado = ""; for(let i = 0; i
+            < numero_repeticiones; i++){ resultado += this; } return resultado;
+            } console.log("Ramon Pascual web".repiteme(5))*/
+          </p>
+
+          <h2>
+            Dado un array,dividirlo en tantos sub-arrays como sea necesario
+            basandonos en un numero que indique su tamaño. Dividirlo en arrays
+            de x elementos Ejemplos: divideArray([7,8,9,10,5], 2) quiero que me
+            divida el array de 2elementos(le indico arrays que quiero me meta
+            los numeros yo le diga) Devuelve: [[7,8],[9,10],[5]] Como hacerlo:
+            -Crear una funcion que reciba los dos parametros -Crear un array
+            -Recorrer array e ir añadiendo sub arrays
+          </h2>
+          <p>
+            function divideArray(array_principal, numero_elementos){ let
+            arreglos = [];//[[0,1], [8,9], [3]]; un array vacio en el cual vamos
+            a introducir otros subarrays for(let elemento of
+            array_principal){//rrecorro arreglo principal let ultimo =
+            arreglos[arreglos.length -1]; //console.log(ultimo) if(!ultimo ||
+            ultimo.length === numero_elementos){//sino existe ultimo o es igual
+            a nºelementos arreglos.push([elemento]); }else{
+            ultimo.push(elemento); } //console.log(arreglos); } return arreglos;
+            } console.log(divideArray([7,8,9,10,5,8,9,10,20], 3));
+          </p>
+
+          <h2>
+            Enunciado: Dado un numero mostrar todos los numeros desde ese al 0
+            de 8 en 8 en una lista con guiones donde cada numero debeempezar por
+            nº ejemplo: ---Del 100 al 0--- - nº100-8-8-8-8-8....de 8 en 8 - 92 -
+            nº84 - nº76 - nº68 - nº60 - nº52 - nº44 - nº36 - nº28 - nº20 - nº12
+            - nº4 --- FIN --- COMO HACERLO: -Funcion que reciba un numero
+            -Inicializar variable con encabezado -Bucle del numero cero
+            -Concatenar guion, n2, numero y salto de linea -Restar 8 -Concatenar
+            FIN
+          </h2>
+          <p>
+            function hastaCero(numero){ let resultado = `--- Del ${numero} al 0
+            --- \n`;//template string `` while(numero > 0){ resultado += `-
+            nº${numero} \n`; numero -= 8; } if(numero <= 0){ resultado += "- nº0
+            \n"; } resultado += "--- FIN ---"; return resultado; }
+            console.log(hastaCero(987));
+          </p>
+
+          <h2>
+            Enunciado: Dado un texto y una busqueda,censurar todas las
+            coincidencias de la busqueda en el texto con [-CENSURADO-].
+            ENUNCIADO: Si texto y la busqueda estan vacio mostrar "No puedes
+            leer el texto y la busqueda" en el caso de que ambos parametros no
+            lleguen. Ejemplos: censurado("hola hola", "hola") // dEVUELVE
+            [-censurado-] [-censurado-] CENSURADO() // DEVUELVE: "No puedes leer
+            el texto y la busqueda" COMO HACERLO: -Funcion que reciba un texto y
+            una busqueda -Condiciones en el caso de que lagun parametro de false
+            -Reemplazar la busqueda por [-censurado-] en el texto
+          </h2>
+          <p>
+            function censurado(texto=false, busqueda=false){ let resultado = "";
+            if(!texto && !busqueda){ resultado = "No puedes leer el texto y la
+            busqueda"; }else if(!texto && busqueda){ resultado = "No puedes leer
+            el texto"; }else if(texto && !busqueda){//si existe el texto y no
+            existe la busqueda entoces.. resultado = "No puedes hacer la
+            busqueda"; }else if(texto && busqueda){//si existe el texto y si
+            existe la busqueda entoces.. //resultado = texto.replace(new
+            RegExp(busqueda, 'gi'), "[-CENSURADO-]"); resultado =texto.replace(
+            new RegExp(busqueda, 'gi'), "[-CENSURADO-]");//expresion regular
+            gloabas mayus y minus //voy a buscar busqueda dentro de texto y lo
+            voy a reemplazar por [-CENSURADO-] } return resultado; }
+            console.log(censurado("hola78 holamanola hola caracola", "hola"))
+          </p>
+
+          <h2>
+            Enunciado: Dado un numero, mostrar una escalera con escalones de
+            "[-]" usando el numero para los niveles de la escalera: Ejemplo:
+            escalera(4) //Devuelve: [-] [-][-] [-][-][-] [-][-][-][-] Como
+            hacerlo -Funcion que reciba un numero -Recorrer el numero de niveles
+            de la escalera -En cada iteracion pintar las escalones de ese nivel
+            -Haciendo un bucle desde 1 hasta el nivel en el que estamos
+          </h2>
+          <p>
+            function escalera(numero){ let escalera_completa = "";//concadenamos
+            los diferentes niveles y guardamospara mostrar al final for(let
+            nivel = 1; nivel <= numero; nivel++){ //console.log("Nivel:",
+            nivel); let escalones = "";//rrelleno con el for de abajo for(let
+            escalon = 1; escalon <= nivel; escalon++){ escalones +=
+            "[-]";//actualizamos la variable de escalones de arriba lin27 }
+            //console.log("Nivel",nivel, escalones); escalera_completa +=
+            escalones + '\n';//añado todos los escalones que tengo } return
+            escalera_completa; } console.log(escalera(7))
+          </p>
+          <h2>
+            Dados 2arrays ,devolver array consolo los elementos comunes entrea
+            ambos. Ejemplos: elementosComunes([4,5,6,7], [7,8,9,7,5]) //
+            Devuelve: [5,7] Como hacerlo; -Funcion que reciba dos arrays
+            -Filtrar array y evaluando una condicion -Devolver array nuevo
+          </h2>
+          <p>
+            function elementosComunes(array1, array2){ const filtrado =
+            array1.filter(elemento => {//funcion filter crea un nuevo array con
+            todos los elementos que cumplan con la condicon implementada por la
+            funcion dada: // si esa palabra tiene mas de 6caracteres dentro
+            genera otro array return array2.includes(elemento); //metodo
+            includes:determina si una cadena de texto puede ser encontrada
+            dentro de una cadena de texto, devolviendo true o false segun
+            corresponda }); return filtrado; }
+            console.log(elementosComunes([4,5,6,7],[7,8,9,7,5]));
+            console.log(elementosComunes(["ramon","Paco","Pepe","Andres"],["juan","ramon","jesus","victor","Andres"]));
+          </p>
+
+          <h2>
+            Dados dos numeros,devolver cuantos numeros impares hay entre ellos
+            Ejemplos(1,100) //Devuelve: 50 Como hacerlo: -Funcion que reciba los
+            dos numeros Bucle de numeral al numero2 -Condicion, si el resto es
+            distinto a cero es impar -Aumentar en uno el contador -Devolver
+            contador
+          </h2>
+          <p>
+            function impares(numero1, numero2){ let contador = 0; while(numero1
+            < numero2){ if(numero1 % 2 !== 0) contador++; //console.log("El
+            "+numero1+" es impar"); numero1++; } return contador; }
+            console.log("Numeros impares:", impares(1,100));
+          </p>
+
+          <h2>
+            Dado un numero entero, inviertelo y devuelve el nuevo entero.
+            Ejemplos: invertir(67) //Devuelve: 76 Como Hacerlo: -Funcion que
+            reciba el nunero -Convertir numero en string -Crear un array para
+            cada letra -Darle la vuelta -Unir el array en un sring -Convertir el
+            string en un entero
+          </h2>
+          <p>
+            function invertirNumero(numero){ let invertido = parseInt(numero//
+            me convierte cualquier string en un entero .toString()//convertir en
+            cadena de texto .split('')//convertir string en un array
+            .reverse()// damos la vuelta al array .join('')// unir con criterio
+            de nada ) * Math.sign(numero);//me dice si es positivo o negativo
+            .sign //console.log(typeof(invertido)); return invertido; }
+            console.log("El numero invertido es", invertirNumero(-1256));
+          </p>
+
+          <h2>
+            ENUNCIADO ¿Cuanto es el x por ciento de x numero ? ejemplos: //el
+            20% de 100 es 20 tantoPorCiento(20,100) // Devuelve: 20
+            tantoPorCiento(43,897) // Devuelve: 385.71 COMO HACERLO -Funcion
+            conparametros "porcentaje" y "numero" -Crear una variable para la
+            operacion del porcentaje -Devolver string que responda a la pregunta
+            delenunciado
+          </h2>
+          <p>
+            function tantoPorCiento(porcentaje, numero){ let operacion = (numero
+            * (porcentaje/100)) let resultado = `El ${porcentaje} % de ${numero}
+            es ${operacion}`; return resultado; //console.log(operacion) }
+            console.log(tantoPorCiento(20, 897))
+          </p>
+
+          <h2>
+            Dibujar un cuadrado hueco con asteriscos ejemplo: cuadrado(4)
+            Devuelve: 4por arriba 4por abajo y 4 por los lados **** * * * * ****
+            COMO HACERLO -Funcion para crear el lado de arriba y abajo del
+            cuadrado -Funcion que haga los lados y el hueco del cuadrado -Bucle
+            de 0 al tamaño del lado de menos 2 para equilibrar con el asterisco
+            de izq a der. -Ir concadenado en una variable cada linea de
+            cuadrado. -Mostrar el cuadrado por minuto 5.30 vid26 ejercicio 6 por
+            la mitad
+          </h2>
+          <p>
+            function lado(numero){ let lado = ""; for(let i = 0; i < numero; i++
+            ){ lado += "*";//la parte arriba cuadrado } return lado; } function
+            cuadrado(numero){//contenido del cuadrado //Lado arriba let dibujo =
+            lado(numero) + "\n"; let contenido = ""; //me guarda el dibujo de mi
+            cuadrado //Filas for(let i=0; i < (numero-2); i++){ contenido = "*";
+            //Contenido Nuevo for(let x=0; x<(numero-2); x++){ contenido += " ";
+            } contenido += "*"; //añadir fila al dibujo dibujo += contenido +
+            "\n"; } //Lado abajo dibujo += lado(numero); return dibujo; }
+            console.log(cuadrado(10));
+          </p>
+          <!-- <ul>
+            <li>valores</li>
+            <li>valores</li>
+            <li>valores</li>
+            <li>valores</li>
+            <li>valores</li>
+          </ul> -->
+        </div>
+        <div class="mision">
+          <h2>PRACTICAR Y RAZONAR Hacer tabla multiplicar</h2>
+          <p>
+            function tablaMultiplicar(numero){ //let resultado = "# Tabla del
+            "+numero+" #"; es lo mismo abajo let resultado = `# Tabla del
+            ${numero} # \n`;// concadenamos con \n salto linea for(let i = 0; i
+            <= 10; i++){ let multiplicacion = (i*numero);
+            //console.log(multiplicacion) //concadeno resultado para que se vea
+            bien resultado += `${i} x ${numero} = ${multiplicacion} \n` // 1 x 5
+            = 5 arriba hace que se vea asi en cada iteracion del bucle } return
+            resultado; } console.log(tablaMultiplicar(5))
+          </p>
+          <h2>
+            Dada una cadena de texto, comprobar si es polindromo o no. Se leen
+            igual de dereacha a izquierda ejem: ana, bob, otto, allivessevilla
+            No tener en cuenta espacios raros Como hacerlo: -Funcion con
+            parametro "texto" -Separar-el-texto-en-un-array- de letras -Darle la
+            vuelta -Unir el array de letras en un string y comparar con el
+            parametro
+          </h2>
+          <p>
+            function palindromo(texto){ let invertido = texto .split('')//
+            dentro de invertido un array con .split .reverse() //doy la vuelta
+            al array .join('')//lo que pongo enmedio comillas me separa las
+            letras ; return (invertido === texto);// Es lo mismo que abajo pero
+            mas corto //console.log(invertido) /* if(invertido === texto ){
+            return true; }else{ return false; }*/ } console.log("Es un
+            palindormo? " + palindromo("1234321")); console.log("Es un numero
+            palindormo? " + palindromo("2134321"));
+          </p>
+        </div>
+        <div class="vision">
+          <h2>
+            Dada una palabra buscarla en una frase y devolver cuantas veces
+            aparece en ella. La frase y la palabra deben ser parametro de una
+            funcion. ejemplo: coincidencias("soy la frase", "victor") //
+            Devuelve: 0 COMO HACERLO: -Funcion con dos parametros "frase" y
+            "busqueda" -Poner string en minusculas y limpiarlo(eliminar puntos
+            comas guiones ,etc) -Comporbar si la busqueda esta inckluida en la
+            frase -Mapear esas palabras y hace un contador de cada una(dentro de
+            objeto JSON) -Devolver el contador de la busqueda
+          </h2>
+          <p>
+            //limpiar frase de puntos y comas ,etc: function
+            coincidencas(frase,busqueda){ let text_limpio =
+            frase.toLowerCase().replace(/[!¿?.,=]/gi, "");
+            //.replace(/[!¿?.,=]/gi, '')quita simbolos y sutituye por la nada
+            //si quiero añada algo entre palabras entre comillas despues gi //
+            para decirle elimine let text_limpio =
+            frase.toLowerCase().replace(/[!¿?.,=]/gi, '') let resultado = 0;
+            //console.log(text_limpio); //en el caso que exista la palabra enla
+            frase:abajo if (text_limpio.includes(busqueda)) { let palabras =
+            text_limpio.split(" "); let mapa = {}; //recorrer cada palabra que
+            se encuenrtra en array de palabras con for //co of( conseguir el
+            valor da cada elemento que hay dentro de una array) seria como un
+            foreach for (let palabra of palabras) { if (mapa[palabra]) {//esta a
+            cero pero damos valor 1 en json y si hay mas de una suma sino nada
+            mapa[palabra]++; } else { mapa[palabra] = 1; } } resultado =
+            mapa[busqueda]; //console.log(palabras); //console.log(mapa); } else
+            { resultado = 0; } return resultado; } console.log( "Numero de
+            coincidencias en la frase: ", //coincidencas("Hola, que tal, soy
+            RAMON pascual. ramon ramon","que"), coincidencas("Esta es mi
+            frase","paco") );
+          </p>
+
+          <h2>
+            enunciado: Dada una cadena de texto, darle la vuelta e invertir el
+            orden de sus caracteres, sin usar metodos propios del lenguaje, solo
+            estructurasde control ejemplos: invertir('holas) // Devuelve: 'aloh'
+            COMO HACERLO -Funcion con parametro "cadena" -Crear una variable
+            para guardar la cadena invertida -Bucle que recorra string y guarde
+            los caracteres en las variables
+          </h2>
+          <p>
+            function invertir(texto){ let invertido = ""; //me recorre el texto
+            y me saca cada letra del texto for(let letra of texto){// for of me
+            saca los valores y el for in los indices //console.log(letra);me
+            uestra cada una de las letras de la frase de arriba abajo invertido
+            = letra + invertido;//wardo el valor de las letras en invertido para
+            dar la vuelta } //console.log(invertido) return invertido; }
+            function invertir(texto){ //estoy haciendo crear un array primero
+            con cada letra del texto,le doi la vuelta a ese array //y uno cada
+            elemento de ese array en un solo string por este criteio de
+            separacion en este caso ninguno.join('') return
+            texto.split("").reverse().join(''); } console.log("Texto invertido:
+            ", invertir("rpasculetweb.es"))
+          </p>
+        </div>
+        <div class="equipo"></div>
+      </div>
+    </section>
+
+    <!-- Cuota -->
+    <section class="cuota">
+      <span>¿Quieres recibir una cuota hoy mismo?</span>
+      <a href="contacto.html">Contáctanos</a>
+    </section>
+
+    <!-- El pie de la página -->
+
+    <footer>
+      <div>INTI StudioWeb &copy;Todos los derechos reservados 2020</div>
+    </footer>
+  </body>
+</html>
